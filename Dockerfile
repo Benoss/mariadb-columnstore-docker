@@ -22,6 +22,6 @@ ENTRYPOINT ["./entrypoint.sh"]
 
 RUN mkdir /root/install/ && cd /root/install \
     && wget  https://downloads.mariadb.com/ColumnStore/$MCS_MAJOR_VERSION/debian/dists/stretch/main/binary_amd64/mariadb-columnstore-$MCS_MAJOR_VERSION$MCS_MINOR_VERSION-stretch.x86_64.deb.tar.gz \
-    && tar -xvf *.tar.gz && dpkg -i *.deb && rm -rf /root/install
+    && tar -xvf *.tar.gz && dpkg -i *.deb && rm -rf /root/install \
     && chmod 755 /etc/service/systemd-journald/run /etc/service/rsyslogd/run /etc/service/columnstore/run /root/entrypoint.sh
     
