@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
 
-/usr/lib/systemd/systemd-journald 2>&1
+export > /etc/envvars
+if [[ $# -eq 0 ]]; then
+  exec /usr/sbin/runsvdir-start
+elif [[ $1 == "" ]]; then
+  exec /usr/sbin/runsvdir-start
+elif [[ $1 == "mcsadmin" ]]; then
+  
+elif  [[ $1 == "mcsmysql" ]]; then
+
+fi
