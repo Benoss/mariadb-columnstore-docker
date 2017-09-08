@@ -11,7 +11,7 @@ RUN apt-get update \
 
 
 
-RUN mkdir /root/install/ && cd /root/install
+RUN mkdir /root/install/ && cd /root/install \
     && curl -SL https://downloads.mariadb.com/ColumnStore/$MCS_MAJOR_VERSION/debian/dists/stretch/main/binary_amd64/mariadb-columnstore-$MCS_MAJOR_VERSION$MCS_MINOR_VERSION-stretch.x86_64.deb.tar.gz \
     | tar -zxf && dpkg -i *.deb && rm -rf /root/install
 
