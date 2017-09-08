@@ -4,9 +4,15 @@ MAINTAINER Benoit Chabord <>
 ENV MCS_MAJOR_VERSION "1.0.11"
 ENV MCS_MINOR_VERSION "-1"
 
+EXPOSE 3306
+VOLUME /usr/local/mariadb/columnstore/etc
+VOLUME /usr/local/mariadb/columnstore/data1
+VOLUME /usr/local/mariadb/columnstore/mysql/db
+
 RUN apt-get update \ 
-    && apt-get -y install wget expect perl openssl file sudo libdbi-perl libboost-all-dev \
-    && apt-get -y install libreadline-dev rsync libsnappy1v5 net-tools libdbd-mysql-perl \
+    && apt-get -y install syslog wget expect perl openssl file sudo runit rsyslog \
+    && apt-get -y install libdbi-perl libboost-all-dev libreadline-dev \
+    && apt-get -y install rsync libsnappy1v5 net-tools libdbd-mysql-perl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /root/install/ && cd /root/install \
